@@ -322,3 +322,11 @@ This package is essentially a wrapper for `venv` and `pip`.
 When entering the context, a temporary folder is created using the [tempfile](https://docs.python.org/3/library/tempfile.html) library. Then it is added to [sys.path](https://docs.python.org/3/library/sys.html#sys.path), and after exiting the context, it is removed from there. To install the package in this particular temporary folder, the `--target` argument is passed to pip, indicating the path to it. Interaction with `pip` and `venv` occurs through [subprocesses](https://docs.python.org/3/library/subprocess.html).
 
 The `import_here` method works by temporarily substituting [sys.path](https://docs.python.org/3/library/sys.html#sys.path) and [sys.modules](https://docs.python.org/3/library/sys.html#sys.modules). This is necessary so that the search for packages takes place only in the necessary directories.
+
+
+## Examples
+
+```python
+with instld('git+https://github.com/pomponchik/cantok.git'):
+    import cantok
+```
